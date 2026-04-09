@@ -5,7 +5,8 @@ import Group5Image from '../../assets/Group 5.png';
 
 const Section = () => {
     return (
-        <div className='section-container max-w-[1600px] h-[760] flex mx-auto justify-around mt-44 mb-44'>
+        <div>
+            <div className='section-container max-w-[1600px] h-[760] flex mx-auto justify-around mt-28 mb-15'>
             <div className='w-[640px]'>
                <button className='flex items-center text-[#4f39f6] bg-[#e1e7ff] p-1 rounded-full'><img src={Group5Image} alt="" />New: AI-Powered Tools Available</button>
                <h2 className='font-bold text-[40px]'>Supercharge Your<br></br> Digital Workflow</h2>
@@ -23,6 +24,23 @@ const Section = () => {
                 <img src={BannerImage} alt="" />
             </div>
         </div>
+
+        <section className='section-statistics flex items-center justify-around bg-linear-to-r from-[#4f39f6] to-[#9514fa] h-30'>
+              <div>
+                <h2 className='font-bold text-2xl text-white'>50K+</h2>
+                <p className='text-white'>Active Users</p>
+              </div>
+              <div>
+                <h2 className='font-bold text-2xl text-white'>200+</h2>
+                <p className='text-white'>Premium Tools</p>
+              </div>
+              <div>
+                <h2 className='font-bold text-2xl text-white'>4.9</h2>
+                <p className='text-white'>Rating</p>
+              </div>
+        </section>
+        </div>
+        
     );
 };
 
