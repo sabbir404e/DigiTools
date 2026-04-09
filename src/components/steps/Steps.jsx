@@ -12,7 +12,7 @@ const Steps = () => {
             <p>Start using premium digital tools in minutes, not hours.</p>
             </div>
 
-            <div className='card-container flex justify-around'>
+            <div className='card-container flex justify-around gap-6'>
 
                  <div className='card-1 bg-base-300 rounded-xl flex flex-col justify-center items-center'>
                     <div className='w-10 h-10 rounded-full bg-linear-to-r from-[#4f39f6] to-[#9514fa] flex items-center justify-center text-white relative -top-1 -right-35'>01</div>
