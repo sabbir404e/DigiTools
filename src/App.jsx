@@ -1,10 +1,13 @@
-import './App.css'
+import './App.css';
+import Navbar from './components/navbar/Navbar';
+import Section from './components/section/Section';
 
 function App() {
 
   return (
     <>
-      <h2 className='text-2xl bg-amber-600'>Hello</h2>
+      <Navbar></Navbar>
+      
     </>
   )
 }
