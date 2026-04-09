@@ -13,8 +13,8 @@ const Ready = () => {
             </div>
 
             <div className='flex gap-5'>
-               <button className='text-xl border border-base-300 p-2 rounded-full text-[#4f39f6] bg-base-100'>Explore Products</button>
-               <button className='text-xl border border-base-300 p-2 text-white rounded-full'>View Pricing</button>
+               <button className='btn text-xl border border-base-300 p-2 rounded-full text-[#4f39f6] bg-base-100'>Explore Products</button>
+               <button className='btn text-xl border border-base-300 p-2 text-white rounded-full bg-linear-to-r from-[#4f39f6] to-[#9514fa] '>View Pricing</button>
             </div>
 
             <div>
