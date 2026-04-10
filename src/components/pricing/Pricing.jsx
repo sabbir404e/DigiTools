@@ -1,76 +1,100 @@
-import React from 'react';
-import { MdOutlineDone } from "react-icons/md";
+import React, { useState, useEffect } from 'react';
+import { MdOutlineDone } from 'react-icons/md';
+import { toast } from 'react-toastify';
 
 const Pricing = () => {
+    const [plans, setPlans] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch('/pricing.json')
+            .then((res) => res.json())
+            .then((data) => {
+                setPlans(data);
+                setLoading(false);
+            })
+            .catch(() => {
+                toast.error('Failed to load pricing plans.');
+                setLoading(false);
+            });
+    }, []);
+
     return (
-        <div>
-            <div className='flex flex-col mx-auto m-10'>
-                        <div className='m-10 flex flex-col mx-auto'>
-                            <h2 className='font-bold text-4xl'>Simple, Transparent Pricing</h2>
-                            <p>Choose the plan that fits your needs. Upgrade or downgrade anytime.</p>
-                        </div>
+        <section className="py-16 px-4">
             
-                       <div className='pricing-card grid grid-cols-3 gap-4 mx-auto'>
-                           
+            <div className="text-center mb-10">
+                <h2 className="font-bold text-3xl sm:text-4xl mb-2">Simple, Transparent Pricing</h2>
+                <p className="text-gray-500">Choose the plan that fits your needs. Upgrade or downgrade anytime.</p>
+            </div>
+
+           
+            {loading ? (
+                <div className="flex justify-center items-center py-20">
+                    <span className="loading loading-spinner loading-lg text-[#4f39f6]"></span>
+                </div>
+            ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+                    {plans.map((plan) => (
+                        <div
+                            key={plan.name}
+                            className={`relative rounded-2xl shadow-md p-6 flex flex-col gap-4 hover:shadow-xl transition-shadow ${
+                                plan.highlight
+                                    ? 'bg-linear-to-b from-[#4f39f6] to-[#9514fa] text-white'
+                                    : 'bg-base-200'
+                            }`}
+                        >
                             
-                        <div  className='cart-start bg-base-300 shadow-sm p-4 space-y-2 rounded-lg'>
-                          <h3 className='font-bold text-2xl'>Starter</h3>
-                          <p>Perfect for getting started</p>
-                          <h2 className='font-bold text-2xl'>$0/Month</h2>
-                          
-                            <ul className='mb-22'>
-                                <li className='flex items-center'><MdOutlineDone /> Access to 10 free tools</li>
-                                <li className='flex items-center'><MdOutlineDone /> Basic templates</li>
-                                <li className='flex items-center'><MdOutlineDone /> Community support</li>
-                                <li className='flex items-center'><MdOutlineDone /> 1 project per month</li>
-                            </ul>
-                          
-                          <button className='btn w-full flex justify-center items-center  bg-linear-to-r from-[#4f39f6] to-[#9514fa] rounded-full'>Get Started Free</button>
-                        </div>
-                        
+                            {plan.badge && (
+                                <span className="absolute top-4 right-4 bg-amber-200 text-amber-600 text-xs font-semibold px-3 py-1 rounded-full">
+                                    {plan.badge}
+                                </span>
+                            )}
 
-                         
-                            <div  className='cart-start bg-linear-to-r from-[#4f39f6] to-[#9514fa] shadow-sm p-4 space-y-2 rounded-lg'>
-                          <h4 className='bg-amber-200 text-amber-600 w-25 p-[1px] rounded-full relative -top-8 -right-14'>Most Popular</h4>
-                          <h3 className='font-bold text-white text-2xl'>Pro</h3>
-                          <p className='text-white'>Best for professionals</p>
-                          <h2 className='font-bold text-2xl text-white'>$29/Mo</h2>
-                          
-                            <ul>
-                                <li className='flex items-center text-white'><MdOutlineDone /> Access to all premium tools</li>
-                                <li className='flex items-center text-white'><MdOutlineDone /> Unlimited templates</li>
-                                <li className='flex items-center text-white'><MdOutlineDone /> Priority support</li>
-                                <li className='flex items-center text-white'><MdOutlineDone /> Unlimited projects</li>
-                                <li className='flex items-center text-white'><MdOutlineDone /> Cloud sync</li>
-                                <li className='flex items-center text-white'><MdOutlineDone /> Advanced analytics</li>
-                            </ul>
-                          
-                          <button className='btn text-blue-700 w-full flex justify-center items-center bg-shadow-sm  rounded-full'>Start Pro Trial</button>
-                        </div>
-                        
+                            
+                            <div>
+                                <h3 className={`font-bold text-2xl ${plan.highlight ? 'text-white' : ''}`}>
+                                    {plan.name}
+                                </h3>
+                                <p className={`text-sm mt-1 ${plan.highlight ? 'text-purple-100' : 'text-gray-500'}`}>
+                                    {plan.subtitle}
+                                </p>
+                            </div>
 
-                         
-                            <div  className='cart-start bg-base-300 shadow-sm p-4 space-y-2 rounded-lg'>
-                          <h3 className='font-bold text-2xl'>Enterprise</h3>
-                          <p>For teams and businesses</p>
-                          <h2 className='font-bold text-2xl'>$99/Month</h2>
-                          
-                            <ul className='mb-10'>
-                                <li className='flex items-center'><MdOutlineDone /> Everything in Pro</li>
-                                <li className='flex items-center'><MdOutlineDone /> Team collaboration</li>
-                                <li className='flex items-center'><MdOutlineDone /> Custom integrations</li>
-                                <li className='flex items-center'><MdOutlineDone /> Dedicated support</li>
-                                <li className='flex items-center'><MdOutlineDone /> SLA gurantee</li>
-                                <li className='flex items-center'><MdOutlineDone /> Custom branding</li>
+                            
+                            <div>
+                                <span className={`font-bold text-3xl ${plan.highlight ? 'text-white' : ''}`}>
+                                    {plan.price}
+                                </span>
+                                <span className={`text-sm ml-1 ${plan.highlight ? 'text-purple-100' : 'text-gray-500'}`}>
+                                    /{plan.period}
+                                </span>
+                            </div>
+
+                           
+                            <ul className="flex flex-col gap-2 flex-grow">
+                                {plan.features.map((f, i) => (
+                                    <li key={i} className={`flex items-center gap-2 text-sm ${plan.highlight ? 'text-white' : ''}`}>
+                                        <MdOutlineDone className={`shrink-0 text-base ${plan.highlight ? 'text-white' : 'text-[#4f39f6]'}`} />
+                                        {f}
+                                    </li>
+                                ))}
                             </ul>
+
                           
-                          <button className='btn w-full flex justify-center items-center  bg-linear-to-r from-[#4f39f6] to-[#9514fa] rounded-full'>Contact Sales</button>
+                            <button
+                                className={`btn w-full rounded-full mt-2 border-none font-semibold ${
+                                    plan.highlight
+                                        ? 'bg-white text-[#4f39f6] hover:bg-purple-50'
+                                        : 'bg-linear-to-r from-[#4f39f6] to-[#9514fa] text-white'
+                                }`}
+                            >
+                                {plan.btnLabel}
+                            </button>
                         </div>
-                        
-                       </div>
-                        
-                    </div>
-        </div>
+                    ))}
+                </div>
+            )}
+        </section>
     );
 };
 

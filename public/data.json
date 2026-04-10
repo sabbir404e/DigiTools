@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Resume Builder Pro",
+    "description": "Create professional resumes with modern templates.",
+    "price": 0,
+    "period": "one-time",
+    "tag": "new",
+    "tagType": "new",
+    "features": [
+      "100+ templates",
+      "ATS optimization",
+      "Export to PDF"
+    ],
+    "icon": "📝"
+  },
+  {
+    "id": 2,
+    "name": "AI Content Generator",
+    "description": "Generate high-quality content using AI.",
+    "price": 19,
+    "period": "monthly",
+    "tag": "popular",
+    "tagType": "popular",
+    "features": [
+      "Unlimited content",
+      "SEO optimization",
+      "Multi-language support"
+    ],
+    "icon": "🤖"
+  },
+  {
+    "id": 3,
+    "name": "Social Media Scheduler",
+    "description": "Schedule and manage posts across platforms.",
+    "price": 29,
+    "period": "monthly",
+    "tag": "best seller",
+    "tagType": "best-seller",
+    "features": [
+      "Auto scheduling",
+      "Analytics dashboard",
+      "Multi-account support"
+    ],
+    "icon": "📅"
+  },
+  {
+    "id": 4,
+    "name": "Website Builder",
+    "description": "Build stunning websites without coding.",
+    "price": 99,
+    "period": "yearly",
+    "tag": "popular",
+    "tagType": "popular",
+    "features": [
+      "Drag & drop builder",
+      "Responsive design",
+      "Custom domain support"
+    ],
+    "icon": "🌐"
+  },
+  {
+    "id": 5,
+    "name": "Graphic Design Toolkit",
+    "description": "Design graphics with ease using templates.",
+    "price": 49,
+    "period": "yearly",
+    "tag": "new",
+    "tagType": "new",
+    "features": [
+      "500+ design templates",
+      "Brand kit",
+      "Export in HD"
+    ],
+    "icon": "🎨"
+  },
+  {
+    "id": 6,
+    "name": "Email Marketing Suite",
+    "description": "Create and automate email campaigns.",
+    "price": 25,
+    "period": "monthly",
+    "tag": "best seller",
+    "tagType": "best-seller",
+    "features": [
+      "Email automation",
+      "Analytics reports",
+      "Custom templates"
+    ],
+    "icon": "📧"
+  }
+]
