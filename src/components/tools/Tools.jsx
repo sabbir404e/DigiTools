@@ -28,7 +28,7 @@ const Tools = () => {
                     <li className='flex items-center'><MdOutlineDone />Grammer checker</li>
                 </ul>
               </p>
-              <button className='btn w-full flex justify-center items-center  bg-linear-to-r from-[#4f39f6] to-[#9514fa]'>Buy Now</button>
+              <button className='btn w-full flex justify-center items-center  bg-linear-to-r from-[#4f39f6] to-[#9514fa] rounded-full'>Buy Now</button>
             </div>
             </div>
             

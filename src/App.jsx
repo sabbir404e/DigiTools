@@ -6,6 +6,7 @@ import Ready from './components/ready/Ready';
 import Footer from './components/footer/Footer';
 import Tools from './components/tools/Tools';
 import Cart from './components/cart/Cart';
+import Pricing from './components/pricing/Pricing';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Section></Section>
       <Tools></Tools>
       <Steps></Steps>
+      <Pricing></Pricing>
       <Ready></Ready>
       <Footer></Footer>
       <Cart></Cart>
